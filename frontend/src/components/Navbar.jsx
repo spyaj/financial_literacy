@@ -49,6 +49,9 @@ const Navbar = () => {
             <Link to="/calculators">
               <button className="btn btn-info">Calculators</button>
             </Link>
+            <Link to="/quiz">
+              <button className="btn btn-info">Quiz</button>
+            </Link>
             <Link to="/profile">
               <button className="btn btn-info">Profile</button>
             </Link>

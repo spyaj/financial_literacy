@@ -1,0 +1,112 @@
+[
+    {
+        "id": "01",
+        "question" : "Question: What is the central bank of Nepal?",
+        "options": [
+            "Nepal Bank Limited",
+            "Rastriya Banijya Bank",
+            "Nepal Rastra Bank",
+            " Agriculture Development Bank"
+        ],
+        "answer": "Nepal Rastra Bank"
+    },
+    {
+        "id": "02",
+        "question" : " Which organization regulates the securities market in Nepal?",
+        "options": [
+            " Nepal Rastra Bank",
+            "Nepal Stock Exchange",
+            " Securities Board of Nepal",
+            " Ministry of Finance"
+        ],
+        "answer": " Securities Board of Nepal"
+    },
+    {
+        "id": "03",
+        "question" : " What is the main stock exchange in Nepal?",
+        "options": [
+            " Himalayan Stock Exchange",
+            "Nepal Stock Exchange",
+            "Everest Stock Market",
+            " Kathmandu Stock Exchange"
+        ],
+        "answer": "Nepal Stock Exchange"
+    },
+    {
+        "id": "04",
+        "question" : "What is the currency of Nepal?",
+        "options": [
+            "Indian Rupee",
+            "Bhutanese Ngultrum",
+            "Nepalese Rupee",
+            " Chinese Yuan"
+        ],
+        "answer": "Nepalese Rupee"
+    },
+    {
+        "id": "05",
+        "question" : "Which tax is the largest source of revenue for the Nepalese government?",
+        "options": [
+            "Income Tax",
+            " Value Added Tax",
+            "Excise Duty",
+            " Customs Duty"
+        ],
+        "answer": " Value Added Tax"
+    },
+    {
+        "id": "06",
+        "question" : "What is the current monetary policy stance of Nepal Rastra Bank as of 2023?",
+        "options": [
+            "accommodative",
+            "Easing",
+            "Neutral",
+            "Contractionary"
+        ],
+        "answer": "accommodative"
+    },
+    {
+        "id": "07",
+        "question" : "What is the corporate tax rate for general industries in Nepal?",
+        "options": [
+            "15%",
+            "20%",
+            "25%",
+            "30%"
+        ],
+        "answer": "25%"
+    },
+    {
+        "id": "08",
+        "question" : " Which financial institution is primarily responsible for providing microfinance services in Nepal?",
+        "options": [
+            "Commercial Banks",
+            " Development Banks",
+            "Microfinance Development Banks",
+            " Insurance Companies"
+        ],
+        "answer": "Microfinance Development Banks"
+    },
+    {
+        "id": "09",
+        "question" : " What is the primary law governing banking operations in Nepal?",
+        "options": [
+            "Company Act",
+            " Banking Regulation Act",
+            "Banks and Financial Institutions Act (BAFIA)",
+            "Financial Institutions Act"
+        ],
+        "answer": "Banks and Financial Institutions Act (BAFIA)"
+    },
+    {
+        "id": "10",
+        "question" : "What is the standard VAT rate in Nepal as of 2023?",
+        "options": [
+            "10%",
+            "12%",
+            "13%",
+            "15%"
+        ],
+        "answer": "13%"
+    }
+]

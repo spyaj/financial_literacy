@@ -6,6 +6,7 @@ import Dashboard from "../pages/Dashboard";
 import ExpensePage from "../pages/ExpensePage";
 import Profile from "../pages/Profile";
 import Calculators from "../pages/Calculators";
+import Quiz from "../pages/Quiz";
 import { useSelector } from "react-redux";
 
 const AnimatedRoutes = () => {
@@ -25,6 +26,7 @@ const AnimatedRoutes = () => {
             <Route path="/calculators" element={<Calculators />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/expenses" element={<ExpensePage />} />
+            <Route path="/quiz" element={<Quiz />} />
           </>
         ) : (
           <Route path="/" element={<Home />} />

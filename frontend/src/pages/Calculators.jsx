@@ -89,7 +89,7 @@ const Calculators = () => {
           <Navbar />
           <h1 className="text-3xl font-bold mb-4">Calculators</h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <div className="my-4 p-6 bg-black rounded-lg shadow-[0_3px_10px_rgb(0,0,0,1)]">
               <h2 className="text-2xl font-bold mb-4 text-white">Simple Interest Calculator</h2>
               <div className="my-3">
