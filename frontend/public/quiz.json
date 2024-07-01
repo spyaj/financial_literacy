@@ -58,12 +58,12 @@
         "id": "06",
         "question" : "What is the current monetary policy stance of Nepal Rastra Bank as of 2023?",
         "options": [
-            "accommodative",
+            "Accommodative",
             "Easing",
             "Neutral",
             "Contractionary"
         ],
-        "answer": "accommodative"
+        "answer": "Accommodative"
     },
     {
         "id": "07",

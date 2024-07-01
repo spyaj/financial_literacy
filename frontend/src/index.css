@@ -3,14 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background: #1d1b21;
   min-height: 100vh;
   font-family: "Montserrat", sans-serif;
-}
+} */
 
 .loginContainer {
   background: linear-gradient(
@@ -113,4 +113,58 @@ img {
 
 .bg-danger {
   background-color: rgb(239 68 68 / 1);
+}
+
+:root {
+  --primary: #148c3e;
+  --secondary: #bf463b;
+  --light-secondary: #f57143;
+  --dark-secondary: #d9ad2b;
+  --black: #000;
+  --gray: #e5e5e5;
+  --light-gray: #F2F2F2;
+  --white: #ffffff;
+  --blue: #0b8cbf;
+  --light-blue: #5ab1d3;
+  
+}
+*{
+  /* outline: 1px solid red; */
+}
+html {
+  scroll-behavior: smooth;
+}
+body{
+  overflow-x: hidden ;
+}
+.clipped-content-feedback {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 93%);
+}
+
+.clipped-content-sector{
+  clip-path: polygon(0 9%, 100% 0%, 100% 100%, 0% 100%);
+}
+.clipped-content-service{
+  clip-path: polygon(0 0, 100% 10%, 100% 100%, 0% 100%);
+}
+.clipped-content-home{
+  clip-path: polygon(0 0, 100% 0%, 100% 95%, 0% 100%);
+}
+@media (max-width: 768px) {
+  .clipped-content-home {
+    /* Adjust clip-path values here for smaller screens */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); 
+  }
+  .clipped-content-service {
+    
+    clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%); 
+  }
+  .clipped-content-sector {
+    
+    clip-path: polygon(0 4%, 100% 0%, 100% 100%, 0% 100%); 
+  }
+  .clipped-content-feedback {
+    
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 97%); 
+  }
 }

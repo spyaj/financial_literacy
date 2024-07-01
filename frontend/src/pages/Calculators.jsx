@@ -14,6 +14,34 @@ const dashboardVariant = {
     },
   },
 };
+const interestRates = {
+  developmentBanks: {
+    savings: {
+      normalSaving: [
+        { bank: "RBB", rate: 5.1 },
+        { bank: "Nabil Bank", rate: 5.9 },
+        { bank: "NIMB", rate: 4.9 },
+      ],
+      fixedDeposit: [
+        { bank: "RBB", rate: 5.3 },
+        { bank: "Nabil Bank", rate: 5.2 },
+        { bank: "NIMB", rate: 5.0 },
+      ],
+    },
+    loans: {
+      autoLoan: [
+        { bank: "RBB", rate: 8.46 },
+        { bank: "Nabil Bank", rate: 9.10 },
+        { bank: "NIMB", rate: 9.76 },
+      ],
+      homeLoan: [
+        { bank: "RBB", rate: 7.46 },
+        { bank: "Nabil Bank", rate: 8.99 },
+        { bank: "NIMB", rate: 10.76 },
+      ],
+    },
+  },
+};
 
 const Calculators = () => {
   const [principalAmountSI, setPrincipalAmountSI] = useState(0);
@@ -40,7 +68,8 @@ const Calculators = () => {
   };
 
   const calculateCompoundInterest = () => {
-    const amount = principalAmountCI * Math.pow(1 + interestRateCI / 100, timeCI);
+    const amount =
+      principalAmountCI * Math.pow(1 + interestRateCI / 100, timeCI);
     const ci = amount - principalAmountCI;
     setCompoundInterest(ci.toFixed(2));
   };
@@ -91,13 +120,17 @@ const Calculators = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <div className="my-4 p-6 bg-black rounded-lg shadow-[0_3px_10px_rgb(0,0,0,1)]">
-              <h2 className="text-2xl font-bold mb-4 text-white">Simple Interest Calculator</h2>
+              <h2 className="text-2xl font-bold mb-4 text-white">
+                Simple Interest Calculator
+              </h2>
               <div className="my-3">
                 <label className="block text-white">Principal Amount: </label>
                 <input
                   type="number"
                   value={principalAmountSI}
-                  onChange={(e) => setPrincipalAmountSI(parseFloat(e.target.value))}
+                  onChange={(e) =>
+                    setPrincipalAmountSI(parseFloat(e.target.value))
+                  }
                   className=" p-2 rounded w-full bg-gray-600 text-white"
                 />
               </div>
@@ -106,7 +139,9 @@ const Calculators = () => {
                 <input
                   type="number"
                   value={interestRateSI}
-                  onChange={(e) => setInterestRateSI(parseFloat(e.target.value))}
+                  onChange={(e) =>
+                    setInterestRateSI(parseFloat(e.target.value))
+                  }
                   className=" p-2 rounded w-full bg-gray-600 text-white"
                 />
               </div>
@@ -126,7 +161,9 @@ const Calculators = () => {
                 Calculate Simple Interest
               </button>
               <div className="my-3">
-                <label className="block text-white">Total Invested Amount: </label>
+                <label className="block text-white">
+                  Total Invested Amount:{" "}
+                </label>
                 <input
                   type="text"
                   value={principalAmountSI}
@@ -147,7 +184,9 @@ const Calculators = () => {
                 <label className="block text-white">Total Amount: </label>
                 <input
                   type="text"
-                  value={(parseFloat(principalAmountSI) + parseFloat(simpleInterest)).toFixed(2)}
+                  value={(
+                    parseFloat(principalAmountSI) + parseFloat(simpleInterest)
+                  ).toFixed(2)}
                   readOnly
                   className=" p-2 rounded w-full bg-gray-600 text-white"
                 />
@@ -155,13 +194,17 @@ const Calculators = () => {
             </div>
 
             <div className="my-4 p-6 bg-black rounded-lg shadow-md">
-              <h2 className="text-2xl font-bold mb-4 text-white">Compound Interest Calculator</h2>
+              <h2 className="text-2xl font-bold mb-4 text-white">
+                Compound Interest Calculator
+              </h2>
               <div className="my-3">
                 <label className="block text-white">Principal Amount: </label>
                 <input
                   type="number"
                   value={principalAmountCI}
-                  onChange={(e) => setPrincipalAmountCI(parseFloat(e.target.value))}
+                  onChange={(e) =>
+                    setPrincipalAmountCI(parseFloat(e.target.value))
+                  }
                   className=" p-2 rounded w-full bg-gray-600 text-white"
                 />
               </div>
@@ -170,7 +213,9 @@ const Calculators = () => {
                 <input
                   type="number"
                   value={interestRateCI}
-                  onChange={(e) => setInterestRateCI(parseFloat(e.target.value))}
+                  onChange={(e) =>
+                    setInterestRateCI(parseFloat(e.target.value))
+                  }
                   className=" p-2 rounded w-full bg-gray-600 text-white"
                 />
               </div>
@@ -190,7 +235,9 @@ const Calculators = () => {
                 Calculate Compound Interest
               </button>
               <div className="my-3">
-                <label className="block text-white">Total Invested Amount: </label>
+                <label className="block text-white">
+                  Total Invested Amount:{" "}
+                </label>
                 <input
                   type="text"
                   value={principalAmountCI}
@@ -211,7 +258,9 @@ const Calculators = () => {
                 <label className="block text-white">Total Amount: </label>
                 <input
                   type="text"
-                  value={(parseFloat(principalAmountCI) + parseFloat(compoundInterest)).toFixed(2)}
+                  value={(
+                    parseFloat(principalAmountCI) + parseFloat(compoundInterest)
+                  ).toFixed(2)}
                   readOnly
                   className=" p-2 rounded w-full bg-gray-600 text-white"
                 />
@@ -219,7 +268,9 @@ const Calculators = () => {
             </div>
 
             <div className="my-4 p-6 bg-black rounded-lg shadow-md">
-              <h2 className="text-2xl font-bold mb-4 text-white">SIP Calculator</h2>
+              <h2 className="text-2xl font-bold mb-4 text-white">
+                SIP Calculator
+              </h2>
               <div className="my-3">
                 <label className="block text-white">Investment Period: </label>
                 <select
@@ -238,16 +289,22 @@ const Calculators = () => {
                 <input
                   type="number"
                   value={investmentAmount}
-                  onChange={(e) => setInvestmentAmount(parseFloat(e.target.value))}
+                  onChange={(e) =>
+                    setInvestmentAmount(parseFloat(e.target.value))
+                  }
                   className=" p-2 rounded w-full bg-gray-600 text-white"
                 />
               </div>
               <div className="my-3">
-                <label className="block text-white">Expected Annual Return (%): </label>
+                <label className="block text-white">
+                  Expected Annual Return (%):{" "}
+                </label>
                 <input
                   type="number"
                   value={expectedAnnualReturn}
-                  onChange={(e) => setExpectedAnnualReturn(parseFloat(e.target.value))}
+                  onChange={(e) =>
+                    setExpectedAnnualReturn(parseFloat(e.target.value))
+                  }
                   className=" p-2 rounded w-full bg-gray-600 text-white"
                 />
               </div>
@@ -292,6 +349,192 @@ const Calculators = () => {
                   readOnly
                   className=" p-2 rounded w-full bg-gray-600 text-white"
                 />
+              </div>
+            </div>
+            <div className="my-4 p-6 bg-black rounded-lg shadow-md">
+              <h2 className="text-2xl font-bold mb-4 text-white text-center">
+                Interest Rates
+              </h2>
+              {/* Commercial Bank  */}
+              <div className="my-10">
+                <h3 className="text-xl font-semibold text-white text-center mb-4">
+                  Commercial Banks
+                </h3>
+                <div className="flex justify-between gap-6">
+                  <div className="w-1/2 text-center">
+                    <p className="text-lg font-bold text-gray-300 mb-2">
+                      Interest Rates (Savings)
+                    </p>
+                    <div className="flex justify-between gap-6 text-center">
+                      <ul className="list-none pl-0 text-white">
+                        <p className="my-3">Normal Saving</p>
+                        {interestRates.developmentBanks.savings.normalSaving.map(
+                          (item, index) => (
+                            <li key={index} className="mb-2 flex text-start">
+                              <span className="text-green-400 pr-2">
+                                {item.bank}
+                              </span>
+                              :
+                              <span className="font-semibold pl-2">
+                                {item.rate}%
+                              </span>
+                            </li>
+                          )
+                        )}
+                      </ul>
+                      <ul className="list-none pl-0 text-white">
+                        <p className="my-3">Fixed Deposit</p>
+                        {interestRates.developmentBanks.savings.fixedDeposit.map(
+                          (item, index) => (
+                            <li key={index} className="mb-2 flex text-start">
+                              <span className="text-green-400 pr-2">
+                                {item.bank}
+                              </span>
+                              :{" "}
+                              <span className="font-semibold pl-2">
+                                {item.rate}%
+                              </span>
+                            </li>
+                          )
+                        )}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="w-1/2 text-center">
+                    <p className="text-lg font-bold text-gray-300 mb-2">
+                      Interest Rates (Loans)
+                    </p>
+                    <div className="flex justify-between gap-6 text-center">
+                      <ul className="list-none pl-0 text-white">
+                        <p className="my-3">Auto Loan</p>
+                        {interestRates.developmentBanks.loans.autoLoan.map(
+                          (item, index) => (
+                            <li key={index} className="mb-2 flex text-start">
+                              <span className="text-red-400 pr-2">
+                                {item.bank}
+                              </span>
+                              :{" "}
+                              <span className="font-semibold pl-2">
+                                {item.rate}%
+                              </span>
+                            </li>
+                          )
+                        )}
+                      </ul>
+                      <ul className="list-none pl-0 text-white">
+                        <p className="my-3">Home Loan</p>
+                        {interestRates.developmentBanks.loans.homeLoan.map(
+                          (item, index) => (
+                            <li key={index} className="mb-2 flex text-start">
+                              <span className="text-red-400 pr-2">
+                                {item.bank}
+                              </span>
+                              :
+                              <span className="font-semibold pl-2">
+                                {item.rate}%
+                              </span>
+                            </li>
+                          )
+                        )}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Development Bank  */}
+              <div className="my-10">
+                <h3 className="text-xl font-semibold text-white text-center mb-4">
+                  Development Banks
+                </h3>
+                <div className="flex justify-between gap-6">
+                  <div className="w-1/2 text-center">
+                    <p className="text-lg font-bold text-gray-300 mb-2">
+                      Interest Rates (Savings)
+                    </p>
+                    <div className="flex justify-between gap-6 text-center">
+                      <ul className="list-none pl-0 text-white">
+                        <p className="my-3">Normal Saving</p>
+                        {interestRates.developmentBanks.savings.normalSaving.map(
+                          (item, index) => (
+                            <li key={index} className="mb-2 flex text-start">
+                              <span className="text-green-400 pr-2">
+                                {item.bank}
+                              </span>
+                              :
+                              <span className="font-semibold pl-2">
+                                {item.rate}%
+                              </span>
+                            </li>
+                          )
+                        )}
+                      </ul>
+                      <ul className="list-none pl-0 text-white">
+                        <p className="my-3">Fixed Deposit</p>
+                        {interestRates.developmentBanks.savings.fixedDeposit.map(
+                          (item, index) => (
+                            <li key={index} className="mb-2 flex text-start">
+                              <span className="text-green-400 pr-2">
+                                {item.bank}
+                              </span>
+                              :{" "}
+                              <span className="font-semibold pl-2">
+                                {item.rate}%
+                              </span>
+                            </li>
+                          )
+                        )}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="w-1/2 text-center">
+                    <p className="text-lg font-bold text-gray-300 mb-2">
+                      Interest Rates (Loans)
+                    </p>
+                    <div className="flex justify-between gap-6 text-center">
+                      <ul className="list-none pl-0 text-white">
+                        <p className="my-3">Auto Loan</p>
+                        {interestRates.developmentBanks.loans.autoLoan.map(
+                          (item, index) => (
+                            <li key={index} className="mb-2 flex text-start">
+                              <span className="text-red-400 pr-2">
+                                {item.bank}
+                              </span>
+                              :{" "}
+                              <span className="font-semibold pl-2">
+                                {item.rate}%
+                              </span>
+                            </li>
+                          )
+                        )}
+                      </ul>
+                      <ul className="list-none pl-0 text-white">
+                        <p className="my-3">Home Loan</p>
+                        {interestRates.developmentBanks.loans.homeLoan.map(
+                          (item, index) => (
+                            <li key={index} className="mb-2 flex text-start">
+                              <span className="text-red-400 pr-2">
+                                {item.bank}
+                              </span>
+                              :{" "}
+                              <span className="font-semibold pl-2">
+                                {item.rate}%
+                              </span>
+                            </li>
+                          )
+                        )}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="text-center mt-6">
+                <a
+                  href="https://bankbyaj.com/"
+                  target="_blank"
+                  className="text-blue-500 hover:underline"
+                >
+                  Click here for full details
+                </a>
               </div>
             </div>
           </div>

@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import QuizList from "../components/QuizList";
 
-
 const dashboardVariant = {
   initial: {
     opacity: 0,
@@ -29,11 +28,7 @@ const Dashboard = () => {
             className=" p-6 max-w-[1600px] mx-auto"
           >
             <Navbar />
-            {/* <ExpenseList /> */}
-            {/* <DashboardList /> */}
-            {/* <DataProvider> */}
-              <QuizList />
-            {/* </DataProvider> */}
+            <QuizList />
           </motion.div>
         </div>
       </div>
