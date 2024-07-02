@@ -3,6 +3,7 @@
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import Spinner from "../Spinner";
+import { color } from "framer-motion";
 
 const PieChart = ({ expenseList, isLoading }) => {
   const categorySums = expenseList?.reduce((accumulator, expense) => {
@@ -103,12 +104,35 @@ const PieChart = ({ expenseList, isLoading }) => {
     ],
   };
 
+  const options = {
+    indexAxis: "y",
+    scales: {
+      x: {
+        ticks: {
+          color: "white",
+        },
+      },
+      y: {
+        ticks: {
+          color: "white",
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: "white",
+        },
+      },
+    },
+  };
+
   return (
     <>
       {isLoading ? (
         <Spinner />
       ) : (
-        <Bar data={data} options={{ indexAxis: "y" }} />
+        <Bar data={data} options={options} />
       )}
     </>
   );

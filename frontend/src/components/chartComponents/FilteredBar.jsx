@@ -58,8 +58,29 @@ const FilteredBar = ({ currentExpenses, isLoading }) => {
       },
     ],
   };
+  const options = {
+    scales: {
+      x: {
+        ticks: {
+          color: "white",
+        },
+      },
+      y: {
+        ticks: {
+          color: "white",
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: "white",
+        },
+      },
+    },
+  };
 
-  return <>{isLoading ? <Spinner /> : <Bar data={data} />}</>;
+  return <>{isLoading ? <Spinner /> : <Bar data={data} options={options} />}</>;
 };
 
 export default FilteredBar;

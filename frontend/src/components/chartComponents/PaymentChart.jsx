@@ -49,8 +49,29 @@ const BarChart = ({ expenseList, isLoading }) => {
       },
     ],
   };
+  const options = {
+    scales: {
+      x: {
+        ticks: {
+          color: "white",
+        },
+      },
+      y: {
+        ticks: {
+          color: "white",
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: "white",
+        },
+      },
+    },
+  };
 
-  return <>{isLoading ? <Spinner /> : <Line data={data} />}</>;
+  return <>{isLoading ? <Spinner /> : <Line data={data} options={options} />}</>;
 };
 
 export default BarChart;

@@ -119,7 +119,7 @@ const Calculators = () => {
           <h1 className="text-3xl font-bold mb-4">Calculators</h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div className="my-4 p-6 bg-black rounded-lg shadow-[0_3px_10px_rgb(0,0,0,1)]">
+            <div className="my-4 p-6 bg-black rounded-lg shadow-md">
               <h2 className="text-2xl font-bold mb-4 text-white">
                 Simple Interest Calculator
               </h2>
@@ -193,164 +193,6 @@ const Calculators = () => {
               </div>
             </div>
 
-            <div className="my-4 p-6 bg-black rounded-lg shadow-md">
-              <h2 className="text-2xl font-bold mb-4 text-white">
-                Compound Interest Calculator
-              </h2>
-              <div className="my-3">
-                <label className="block text-white">Principal Amount: </label>
-                <input
-                  type="number"
-                  value={principalAmountCI}
-                  onChange={(e) =>
-                    setPrincipalAmountCI(parseFloat(e.target.value))
-                  }
-                  className=" p-2 rounded w-full bg-gray-600 text-white"
-                />
-              </div>
-              <div className="my-3">
-                <label className="block text-white">Interest Rate (%): </label>
-                <input
-                  type="number"
-                  value={interestRateCI}
-                  onChange={(e) =>
-                    setInterestRateCI(parseFloat(e.target.value))
-                  }
-                  className=" p-2 rounded w-full bg-gray-600 text-white"
-                />
-              </div>
-              <div className="my-3">
-                <label className="block text-white">Time (Years): </label>
-                <input
-                  type="number"
-                  value={timeCI}
-                  onChange={(e) => setTimeCI(parseFloat(e.target.value))}
-                  className=" p-2 rounded w-full bg-gray-600 text-white"
-                />
-              </div>
-              <button
-                onClick={calculateCompoundInterest}
-                className="bg-blue-500 text-white py-2 px-4 rounded mt-4"
-              >
-                Calculate Compound Interest
-              </button>
-              <div className="my-3">
-                <label className="block text-white">
-                  Total Invested Amount:{" "}
-                </label>
-                <input
-                  type="text"
-                  value={principalAmountCI}
-                  readOnly
-                  className=" p-2 rounded w-full bg-gray-600 text-white"
-                />
-              </div>
-              <div className="my-3">
-                <label className="block text-white">Interest Earned: </label>
-                <input
-                  type="text"
-                  value={compoundInterest}
-                  readOnly
-                  className=" p-2 rounded w-full bg-gray-600 text-white"
-                />
-              </div>
-              <div className="my-3">
-                <label className="block text-white">Total Amount: </label>
-                <input
-                  type="text"
-                  value={(
-                    parseFloat(principalAmountCI) + parseFloat(compoundInterest)
-                  ).toFixed(2)}
-                  readOnly
-                  className=" p-2 rounded w-full bg-gray-600 text-white"
-                />
-              </div>
-            </div>
-
-            <div className="my-4 p-6 bg-black rounded-lg shadow-md">
-              <h2 className="text-2xl font-bold mb-4 text-white">
-                SIP Calculator
-              </h2>
-              <div className="my-3">
-                <label className="block text-white">Investment Period: </label>
-                <select
-                  value={investmentPeriod}
-                  onChange={(e) => setInvestmentPeriod(e.target.value)}
-                  className=" p-2 rounded w-full bg-gray-600 text-white"
-                >
-                  <option value="monthly">Monthly</option>
-                  <option value="quarterly">Quarterly</option>
-                  <option value="semi-annually">Semi-Annually</option>
-                  <option value="annually">Annually</option>
-                </select>
-              </div>
-              <div className="my-3">
-                <label className="block text-white">Investment Amount: </label>
-                <input
-                  type="number"
-                  value={investmentAmount}
-                  onChange={(e) =>
-                    setInvestmentAmount(parseFloat(e.target.value))
-                  }
-                  className=" p-2 rounded w-full bg-gray-600 text-white"
-                />
-              </div>
-              <div className="my-3">
-                <label className="block text-white">
-                  Expected Annual Return (%):{" "}
-                </label>
-                <input
-                  type="number"
-                  value={expectedAnnualReturn}
-                  onChange={(e) =>
-                    setExpectedAnnualReturn(parseFloat(e.target.value))
-                  }
-                  className=" p-2 rounded w-full bg-gray-600 text-white"
-                />
-              </div>
-              <div className="my-3">
-                <label className="block text-white">Years: </label>
-                <input
-                  type="number"
-                  value={years}
-                  onChange={(e) => setYears(parseFloat(e.target.value))}
-                  className=" p-2 rounded w-full bg-gray-600 text-white"
-                />
-              </div>
-              <button
-                onClick={calculateSIP}
-                className="bg-blue-500 text-white py-2 px-4 rounded mt-4"
-              >
-                Calculate SIP
-              </button>
-              <div className="my-3">
-                <label className="block text-white">Expected Amount: </label>
-                <input
-                  type="text"
-                  value={expectedAmount}
-                  readOnly
-                  className=" p-2 rounded w-full bg-gray-600 text-white"
-                />
-              </div>
-              <div className="my-3">
-                <label className="block text-white">Amount Invested: </label>
-                <input
-                  type="text"
-                  value={amountInvested}
-                  readOnly
-                  className=" p-2 rounded w-full bg-gray-600 text-white"
-                />
-              </div>
-              <div className="my-3">
-                <label className="block text-white">Wealth Gain: </label>
-                <input
-                  type="text"
-                  value={wealthGain}
-                  readOnly
-                  className=" p-2 rounded w-full bg-gray-600 text-white"
-                />
-              </div>
-            </div>
             <div className="my-4 p-6 bg-black rounded-lg shadow-md">
               <h2 className="text-2xl font-bold mb-4 text-white text-center">
                 Interest Rates
@@ -537,6 +379,168 @@ const Calculators = () => {
                 </a>
               </div>
             </div>
+
+            <div className="my-4 p-6 bg-black rounded-lg shadow-md">
+              <h2 className="text-2xl font-bold mb-4 text-white">
+                Compound Interest Calculator
+              </h2>
+              <div className="my-3">
+                <label className="block text-white">Principal Amount: </label>
+                <input
+                  type="number"
+                  value={principalAmountCI}
+                  onChange={(e) =>
+                    setPrincipalAmountCI(parseFloat(e.target.value))
+                  }
+                  className=" p-2 rounded w-full bg-gray-600 text-white"
+                />
+              </div>
+              <div className="my-3">
+                <label className="block text-white">Interest Rate (%): </label>
+                <input
+                  type="number"
+                  value={interestRateCI}
+                  onChange={(e) =>
+                    setInterestRateCI(parseFloat(e.target.value))
+                  }
+                  className=" p-2 rounded w-full bg-gray-600 text-white"
+                />
+              </div>
+              <div className="my-3">
+                <label className="block text-white">Time (Years): </label>
+                <input
+                  type="number"
+                  value={timeCI}
+                  onChange={(e) => setTimeCI(parseFloat(e.target.value))}
+                  className=" p-2 rounded w-full bg-gray-600 text-white"
+                />
+              </div>
+              <button
+                onClick={calculateCompoundInterest}
+                className="bg-blue-500 text-white py-2 px-4 rounded mt-4"
+              >
+                Calculate Compound Interest
+              </button>
+              <div className="my-3">
+                <label className="block text-white">
+                  Total Invested Amount:{" "}
+                </label>
+                <input
+                  type="text"
+                  value={principalAmountCI}
+                  readOnly
+                  className=" p-2 rounded w-full bg-gray-600 text-white"
+                />
+              </div>
+              <div className="my-3">
+                <label className="block text-white">Interest Earned: </label>
+                <input
+                  type="text"
+                  value={compoundInterest}
+                  readOnly
+                  className=" p-2 rounded w-full bg-gray-600 text-white"
+                />
+              </div>
+              <div className="my-3">
+                <label className="block text-white">Total Amount: </label>
+                <input
+                  type="text"
+                  value={(
+                    parseFloat(principalAmountCI) + parseFloat(compoundInterest)
+                  ).toFixed(2)}
+                  readOnly
+                  className=" p-2 rounded w-full bg-gray-600 text-white"
+                />
+              </div>
+            </div>
+
+            <div className="my-4 p-6 bg-black rounded-lg shadow-md">
+              <h2 className="text-2xl font-bold mb-4 text-white">
+                SIP Calculator
+              </h2>
+              <div className="my-3">
+                <label className="block text-white">Investment Period: </label>
+                <select
+                  value={investmentPeriod}
+                  onChange={(e) => setInvestmentPeriod(e.target.value)}
+                  className=" p-2 rounded w-full bg-gray-600 text-white"
+                >
+                  <option value="monthly">Monthly</option>
+                  <option value="quarterly">Quarterly</option>
+                  <option value="semi-annually">Semi-Annually</option>
+                  <option value="annually">Annually</option>
+                </select>
+              </div>
+              <div className="my-3">
+                <label className="block text-white">Investment Amount: </label>
+                <input
+                  type="number"
+                  value={investmentAmount}
+                  onChange={(e) =>
+                    setInvestmentAmount(parseFloat(e.target.value))
+                  }
+                  className=" p-2 rounded w-full bg-gray-600 text-white"
+                />
+              </div>
+              <div className="my-3">
+                <label className="block text-white">
+                  Expected Annual Return (%):{" "}
+                </label>
+                <input
+                  type="number"
+                  value={expectedAnnualReturn}
+                  onChange={(e) =>
+                    setExpectedAnnualReturn(parseFloat(e.target.value))
+                  }
+                  className=" p-2 rounded w-full bg-gray-600 text-white"
+                />
+              </div>
+              <div className="my-3">
+                <label className="block text-white">Years: </label>
+                <input
+                  type="number"
+                  value={years}
+                  onChange={(e) => setYears(parseFloat(e.target.value))}
+                  className=" p-2 rounded w-full bg-gray-600 text-white"
+                />
+              </div>
+              <button
+                onClick={calculateSIP}
+                className="bg-blue-500 text-white py-2 px-4 rounded mt-4"
+              >
+                Calculate SIP
+              </button>
+              <div className="my-3">
+                <label className="block text-white">Expected Amount: </label>
+                <input
+                  type="text"
+                  value={expectedAmount}
+                  readOnly
+                  className=" p-2 rounded w-full bg-gray-600 text-white"
+                />
+              </div>
+              <div className="my-3">
+                <label className="block text-white">Amount Invested: </label>
+                <input
+                  type="text"
+                  value={amountInvested}
+                  readOnly
+                  className=" p-2 rounded w-full bg-gray-600 text-white"
+                />
+              </div>
+              <div className="my-3">
+                <label className="block text-white">Wealth Gain: </label>
+                <input
+                  type="text"
+                  value={wealthGain}
+                  readOnly
+                  className=" p-2 rounded w-full bg-gray-600 text-white"
+                />
+              </div>
+            </div>
+
+
+            
           </div>
         </motion.div>
       </div>

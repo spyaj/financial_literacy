@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-// import * as Icons from "../assets/icons";
 import * as Images from "../assets/images";
-// import HeroSection from "./HomePages/HeroSection"
 import AboutSection from "./HomePages/AboutSection";
 import SectorSection from "./HomePages/SectorSection";
 import ContactSection from "./HomePages/ContactSection";
@@ -24,6 +22,7 @@ const Home = () => {
       },
     },
   };
+
   const routes = [
     {
       path: "/",
@@ -41,6 +40,7 @@ const Home = () => {
       sectionName: "#contactsection",
     },
   ];
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {
@@ -54,11 +54,11 @@ const Home = () => {
           variants={homeVariant}
           initial="initial"
           animate="animate"
-          className="min-h-screen  max-w-[1400px] mx-auto"
+          className="min-h-screen max-w-[1400px] mx-auto"
         >
           <div className="flex justify-between items-center py-4 px-2">
             <div>
-              <h1 className="gradientOverlay md:text-[28px] sm:text-[20px] text-[13px]">
+              <h1 className="gradientOverlay md:text-[20px] sm:text-[16px] text-[13px]">
                 Finance Literacy
               </h1>
             </div>
@@ -72,28 +72,36 @@ const Home = () => {
                 </Link>
               </div>
             ) : (
-              <div className=" container justify-end flex">
-                <div className="flex space-x-3">
-                  {routes.map((route) => (
-                    <button
-                      
-                      key={route.name}
-                    >
-                      <a className="btn btn-outline btn-info md:text-[16px] text-[12px]" href={`${route.sectionName}`}>{route.name}</a>
-                    </button>
-                  ))}
+              <div className="container flex justify-end items-center space-x-3">
+                <div className="flex gap-4">
+                  <div className="hidden md:flex gap-2 ">
+                    {routes.map((route) => (
+                      <a
+                        className="btn btn-outline btn-info md:text-[14px] text-[12px]"
+                        href={`${route.sectionName}`}
+                        key={route.name}
+                      >
+                        {route.name}
+                      </a>
+                    ))}
+                  </div>
                   <Link to="/login">
-                    <button className="btn btn-outline btn-success md:text-[16px] text-[12px]">
+                    <button className="btn btn-outline btn-success md:text-[14px] text-[12px]">
                       Sign In
                     </button>
                   </Link>
                   <Link to="/register">
-                    <button className="btn btn-outline btn-success md:text-[16px] text-[12px]">
+                    <button className="btn btn-outline btn-success md:text-[14px] text-[12px]">
                       Sign Up
                     </button>
                   </Link>
+                  <button
+                    className="btn btn-outline btn-info md:hidden text-[12px]"
+                    onClick={handleMenuToggle}
+                  >
+                    <i className="fa-solid fa-bars"></i>
+                  </button>
                 </div>
-
               </div>
             )}
           </div>
@@ -120,16 +128,38 @@ const Home = () => {
                 </section>
               </div>
 
-              <div className="flex flex-col lg:flex-row items-center lg:space-x-6 m-3"></div>
             </div>
-            {/* <HeroSection /> */}
-            <AboutSection/>
+            <AboutSection />
             <SectorSection />
-            <ContactSection/>
-            
+            <ContactSection />
           </div>
         </motion.div>
       </div>
+
+      {isMenuOpen && (
+        <div className="absolute top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 flex justify-center items-center">
+          <div className="bg-[#28272D] p-6 rounded-lg shadow-lg w-3/4 max-w-md">
+            <button
+              className="btn btn-outline btn-info absolute top-4 right-7 text-[12px]"
+              onClick={handleMenuToggle}
+            >
+              <i className="fa-solid fa-times"></i>
+            </button>
+            <div className="flex flex-col space-y-3">
+              {routes.map((route) => (
+                <a
+                  className="btn btn-outline btn-info text-[16px] w-full"
+                  href={`${route.sectionName}`}
+                  key={route.name}
+                  onClick={handleMenuToggle}
+                >
+                  {route.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

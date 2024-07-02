@@ -70,7 +70,29 @@ const LineChart = ({ expenseList, isLoading }) => {
     ],
   };
 
-  return <>{isLoading ? <Spinner /> : <Line data={data} />}</>;
+  const options = {
+    scales: {
+      x: {
+        ticks: {
+          color: "white",
+        },
+      },
+      y: {
+        ticks: {
+          color: "white",
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: "white",
+        },
+      },
+    },
+  };
+
+  return <>{isLoading ? <Spinner /> : <Line data={data} options={options} />}</>;
 };
 
 export default LineChart;
