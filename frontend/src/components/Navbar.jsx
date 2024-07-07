@@ -42,6 +42,10 @@ const Navbar = () => {
       path: "/quiz",
     },
     {
+      name: "Video",
+      path: "/video",
+    },
+    {
       name: "Profile",
       path: "/profile",
     },
