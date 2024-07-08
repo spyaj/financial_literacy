@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import * as Images from "../../assets/images";
-// import * as Icons from "../../assets/icons";
-// import { ReactComponent as Time } from '../../assets/icons/time-management.svg';
-// import { ReactComponent as Waste } from '../../assets/icons/waste-recycle.svg';
+
 
 const HeroSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

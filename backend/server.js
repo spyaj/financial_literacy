@@ -49,6 +49,7 @@ import path from "path";
 import express from "express";
 import userRoutes from "./routes/userRoutes.js";
 import expenseRoutes from "./routes/expenseRoutes.js";
+import videoRoutes from "./routes/videoRoutes.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 import { connectDB } from "./config/db.js"; // Adjusted import
 import cookieParser from "cookie-parser";
@@ -71,6 +72,7 @@ app.use(cookieParser());
 
 app.use("/api/users", userRoutes);
 app.use("/api/expenses", expenseRoutes);
+app.use("/api/videos", videoRoutes);
 
 const __dirname = path.resolve();
 if (NODE_ENV === "production") {

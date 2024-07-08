@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
+import { Search } from "lucide-react";
+import { AudioLines } from "lucide-react";
 
 const dashboardVariant = {
   initial: {
@@ -28,32 +30,35 @@ const SearchPage = () => {
   const [filteredVideos, setFilteredVideos] = useState([]);
   const [relatedVideos, setRelatedVideos] = useState([]);
 
+  const fetchVideos = async () => {
+    const response = await fetch("/api/videos");
+    const data = await response.json();
+    setVideos(data);
+    setFilteredVideos(data);
+  };
+
+  const fetchSearchResults = async (term) => {
+    const response = await fetch(`/api/videos/search?query=${term}`);
+    const data = await response.json();
+    setFilteredVideos(data);
+
+    const related = data.filter(
+      (video) =>
+        video.Tag && video.Tag.toLowerCase().includes(term.toLowerCase())
+    );
+    setRelatedVideos(related);
+  };
+
   useEffect(() => {
-    fetch("/videos.json")
-      .then((response) => response.json())
-      .then((data) => {
-        setVideos(data);
-        setFilteredVideos(data); // Initialize filteredVideos with all videos
-      });
+    fetchVideos();
   }, []);
 
   useEffect(() => {
     if (searchTerm) {
-      const filtered = videos.filter((video) =>
-        video.Title.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setFilteredVideos(filtered);
-
-      // Example: Filter by tag (if 'Tag' property exists)
-      const related = videos.filter(
-        (video) =>
-          video.Tag &&
-          video.Tag.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setRelatedVideos(related);
+      fetchSearchResults(searchTerm);
     } else {
-      setFilteredVideos([]); // Reset filteredVideos when searchTerm is empty
-      setRelatedVideos([]); // Reset relatedVideos when searchTerm is empty
+      setFilteredVideos(videos); // Reset to all videos when search term is empty
+      setRelatedVideos([]);
     }
   }, [searchTerm, videos]);
 
@@ -77,6 +82,9 @@ const SearchPage = () => {
 
         <div className="flex items-center justify-center">
           <div className="flex rounded-full bg-[#0d1829] px-2 w-full max-w-[600px]">
+            <button className="self-center rounded-full flex p-1 cursor-pointer bg-[#0d1829]">
+              <AudioLines color="#ff7070" />
+            </button>
             <input
               type="text"
               className="w-full bg-[#0d1829] flex bg-transparent pl-2 text-[#cccccc] outline-0"
@@ -89,7 +97,7 @@ const SearchPage = () => {
               className="relative p-2 bg-[#0d1829] rounded-full"
               onClick={handleSearchSubmit}
             >
-              Search
+              <Search color="#ff7070" />
             </button>
           </div>
         </div>
@@ -119,10 +127,10 @@ const SearchPage = () => {
           </div>
         )}
 
-        {/* <div className="all-videos p-6 max-w-[1600px] mx-auto">
+        <div className="all-videos p-6 max-w-[1600px] mx-auto">
           <h1 className="text-xl font-bold text-white">All Videos</h1>
           <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-            {filteredVideos.map((video, index) => (
+            {videos.map((video, index) => (
               <div
                 key={index}
                 className="flex flex-col items-center justify-center cursor-pointer"
@@ -140,7 +148,7 @@ const SearchPage = () => {
               </div>
             ))}
           </div>
-        </div> */}
+        </div>
       </motion.div>
     </div>
   );

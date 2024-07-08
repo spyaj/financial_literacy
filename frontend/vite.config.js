@@ -1,12 +1,11 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 // import eslintPlugin from "vite-plugin-eslint";
-import svgr from 'vite-plugin-svgr';
-import reactSvgPlugin from 'vite-plugin-react-svg';
+// import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), svgr(),reactSvgPlugin()],
+  plugins: [react(),],
   server: {
     proxy: {
       "/api": {

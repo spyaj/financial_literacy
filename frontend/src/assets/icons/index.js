@@ -27,7 +27,7 @@ import { ReactComponent as BusinessTeam } from "./business-team.svg";
 import { ReactComponent as Time } from "./time-management.svg";
 import { ReactComponent as Waste } from "./waste-recycle.svg";
 import { ReactComponent as Star } from "./star.svg";
-import { ReactComponent as Search } from "./search.svg";
+import Search from "./search.svg?react";
 
 export {
   Address,

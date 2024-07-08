@@ -1,5 +1,6 @@
 import React from "react";
 import * as Images from "../../assets/images";
+import { Search } from "lucide-react";
 
 
 const SectorSection = () => {
@@ -58,7 +59,7 @@ const SectorSection = () => {
                   >
                     <div className="absolute hidden inset-0 bg-gradient-to-b from-transparent to-black opacity-75 group-hover:flex group-hover:transition group-hover:duration-300 group-hover:ease-in-out">
                       <div className="text-white hidden flex-col gap-4 items-center text-center absolute inset-0 z-10 group-hover:flex group-hover:justify-end group-hover:bottom-10">
-                        <svg
+                        {/* <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -71,7 +72,8 @@ const SectorSection = () => {
                             stroke-linejoin="round"
                             d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
                           />
-                        </svg>
+                        </svg> */}
+                        <Search/>
                         <h3 className="text-2xl font-bold">{partner.title}</h3>
                         <button className="bg-blue hover:bg-blue-light  px-4 py-3 text-white font-semibold ">
                           READ MORE
