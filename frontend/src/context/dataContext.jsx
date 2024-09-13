@@ -50,11 +50,11 @@ export const DataProvider = ({ children }) => {
     if (!selectedAnswer) {
       setCorrectAnswer(question.answer);
       setSelectedAnswer(selected);
-  
+
       // Log selected and correct answers for debugging
       console.log("Selected answer:", selected);
       console.log("Correct answer:", question.answer);
-  
+
       // Update marks based on the selected answer
       if (selected === question.answer) {
         setMarks((prevMarks) => {
@@ -114,6 +114,17 @@ export const DataProvider = ({ children }) => {
     return true; // Return true if quiz is canceled
   };
 
+  // New state for leaderboard
+  const [leaderboard, setLeaderboard] = useState([]);
+
+  // Function to update leaderboard
+  const updateLeaderboard = (user, score) => {
+    setLeaderboard((prevLeaderboard) => [
+      ...prevLeaderboard,
+      { user, score },
+    ]);
+  };
+    
   return (
     <DataContext.Provider
       value={{
@@ -132,6 +143,10 @@ export const DataProvider = ({ children }) => {
         marks,
         startOver,
         cancelQuiz,
+        updateLeaderboard,
+        leaderboard,
+        marks,
+        setMarks, 
       }}
     >
       {children}

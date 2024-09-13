@@ -1,28 +1,79 @@
 [
-    {
-      "question": "What does NEPSE stand for?",
-      "options": ["Nepal Stock Exchange", "National Economic Policy Standard Exchange", "Nepal Equity and Share Exchange", "National Stock Exchange"],
-      "answer": "Nepal Stock Exchange"
-    },
-    {
-      "question": "In which year was NEPSE established?",
-      "options": ["1993", "2001", "1985", "1998"],
-      "answer": "1993"
-    },
-    {
-      "question": "Which of the following is a trading mechanism used by NEPSE?",
-      "options": ["Automated Trading System", "Outcry Trading System", "Blockchain System", "Barter System"],
-      "answer": "Automated Trading System"
-    },
-    {
-      "question": "Which regulatory body oversees the operations of NEPSE?",
-      "options": ["Securities Board of Nepal (SEBON)", "Nepal Rastra Bank", "Nepal Investment Authority", "Ministry of Finance"],
-      "answer": "Securities Board of Nepal (SEBON)"
-    },
-    {
-      "question": "What is the primary index used to track the performance of stocks in NEPSE?",
-      "options": ["NEPSE Index", "Nifty 50", "Dow Jones", "FTSE 100"],
-      "answer": "NEPSE Index"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "question": "What does NEPSE stand for?",
+    "options": [
+      "Nepal Stock Exchange",
+      "Nepal Securities Exchange",
+      "Nepal Stock Board",
+      "Nepal Securities Market"
+    ],
+    "answer": "Nepal Stock Exchange"
+  },
+  {
+    "id": 2,
+    "question": "Which regulatory body supervises NEPSE in Nepal?",
+    "options": [
+      "Nepal Rastra Bank",
+      "Securities Board of Nepal (SEBON)",
+      "Ministry of Finance",
+      "Nepal Financial Board"
+    ],
+    "answer": "Securities Board of Nepal (SEBON)"
+  },
+  {
+    "id": 3,
+    "question": "Which type of market is NEPSE?",
+    "options": [
+      "Stock Exchange",
+      "Commodity Exchange",
+      "Foreign Exchange",
+      "Cryptocurrency Exchange"
+    ],
+    "answer": "Stock Exchange"
+  },
+  {
+    "id": 4,
+    "question": "What is the trading unit of shares in NEPSE?",
+    "options": [
+      "10 units",
+      "1 unit",
+      "100 units",
+      "50 units"
+    ],
+    "answer": "10 units"
+  },
+  {
+    "id": 5,
+    "question": "What is the significance of the NEPSE index?",
+    "options": [
+      "It indicates market performance",
+      "It shows foreign exchange rates",
+      "It tracks government bond yields",
+      "It determines interest rates"
+    ],
+    "answer": "It indicates market performance"
+  },
+  {
+    "id": 6,
+    "question": "When was NEPSE established?",
+    "options": [
+      "1994",
+      "1989",
+      "2000",
+      "1990"
+    ],
+    "answer": "1994"
+  },
+  {
+    "id": 7,
+    "question": "Which of the following is a major sector listed on NEPSE?",
+    "options": [
+      "Banking",
+      "Agriculture",
+      "Real Estate",
+      "Oil and Gas"
+    ],
+    "answer": "Banking"
+  }
+]

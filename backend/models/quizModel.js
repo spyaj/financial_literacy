@@ -6,11 +6,6 @@ const quizSchema = mongoose.Schema({
     type: String,  // Group levels under specific chapters
     required: true,
   },
-  level: {
-    type: Number,
-    required: true,
-    unique: true,
-  },
   questions: [
     {
       question: { type: String, required: true },

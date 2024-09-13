@@ -10,6 +10,7 @@ import Quiz from "../pages/Quiz";
 import Video from "../pages/Videos";
 import VideoPlayer from "./VideoPlayer";
 import SearchPage from "./SearchPage";
+import Leaderboard from "../pages/Leaderboard";
 import { useSelector } from "react-redux";
 
 const AnimatedRoutes = () => {
@@ -33,6 +34,7 @@ const AnimatedRoutes = () => {
             <Route path="/video" element={<Video />} />
             <Route path="/video-player" element={<VideoPlayer />} />
             <Route path="/search" element={<SearchPage />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
           </>
         ) : (
           <Route path="/" element={<Home />} />

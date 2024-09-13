@@ -2,6 +2,7 @@ import React from "react";
 import StartPage from "./quizComponents/StartPage";
 import QuizPage from "./quizComponents/QuizPage";
 import ResultPage from "./quizComponents/ResultPage";
+// import Leaderboard from "./quizComponents/Leaderboard";
 import { DataProvider } from "../context/dataContext";
 
 const QuizList = () => {

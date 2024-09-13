@@ -7,17 +7,6 @@ const userSchema = mongoose.Schema(
     name: { type: String, required: true },
     email: { type: String, unique: true, required: true },
     password: { type: String, required: true },
-    xp: { type: Number, default: 0 }, // Track user XP
-    points: { type: Number, default: 0 },
-    completedLevels: {
-      type: [Number],
-      default: [],
-    },
-    unlockedLevels: {
-      // Store levels that are unlocked based on performance
-      type: [Number],
-      default: [1], // Level 1 is always unlocked by default
-    },
   },
   { timestamps: true }
 );

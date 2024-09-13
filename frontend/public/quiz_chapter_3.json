@@ -1,28 +1,79 @@
 [
-    {
-      "question": "What is a mutual fund?",
-      "options": ["A pool of money from many investors to invest in securities", "A loan offered by a bank", "A type of fixed deposit", "A stock exchange platform"],
-      "answer": "A pool of money from many investors to invest in securities"
-    },
-    {
-      "question": "Which of the following is an advantage of mutual funds?",
-      "options": ["Diversification", "High transaction costs", "Guaranteed returns", "No risk"],
-      "answer": "Diversification"
-    },
-    {
-      "question": "Who manages the investments in a mutual fund?",
-      "options": ["A professional fund manager", "The individual investors", "A government official", "A financial advisor"],
-      "answer": "A professional fund manager"
-    },
-    {
-      "question": "Mutual funds are typically regulated by which type of organization?",
-      "options": ["Securities and Exchange Commission", "Central Banks", "Tax Authorities", "International Monetary Fund"],
-      "answer": "Securities and Exchange Commission"
-    },
-    {
-      "question": "Which of the following is a type of mutual fund?",
-      "options": ["Equity Fund", "Savings Account", "Fixed Deposit", "Real Estate Fund"],
-      "answer": "Equity Fund"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "question": "What is a Mutual Fund?",
+    "options": [
+      "A pool of money from multiple investors",
+      "A type of fixed deposit",
+      "A government bond",
+      "A type of bank loan"
+    ],
+    "answer": "A pool of money from multiple investors"
+  },
+  {
+    "id": 2,
+    "question": "In Nepal, who regulates Mutual Funds?",
+    "options": [
+      "Securities Board of Nepal (SEBON)",
+      "Nepal Stock Exchange",
+      "Nepal Rastra Bank",
+      "Nepal Investment Authority"
+    ],
+    "answer": "Securities Board of Nepal (SEBON)"
+  },
+  {
+    "id": 3,
+    "question": "Which of the following is a key benefit of investing in a Mutual Fund?",
+    "options": [
+      "Diversification",
+      "Guaranteed returns",
+      "Tax-free income",
+      "Zero risk"
+    ],
+    "answer": "Diversification"
+  },
+  {
+    "id": 4,
+    "question": "Which of the following is NOT a type of Mutual Fund?",
+    "options": [
+      "Growth Fund",
+      "Debt Fund",
+      "Equity Fund",
+      "Insurance Fund"
+    ],
+    "answer": "Insurance Fund"
+  },
+  {
+    "id": 5,
+    "question": "Which type of Mutual Fund is considered the least risky?",
+    "options": [
+      "Debt Fund",
+      "Equity Fund",
+      "Hybrid Fund",
+      "Growth Fund"
+    ],
+    "answer": "Debt Fund"
+  },
+  {
+    "id": 6,
+    "question": "How are profits distributed in Mutual Funds?",
+    "options": [
+      "Dividends and capital gains",
+      "Through interest payments",
+      "By increasing the unit price",
+      "By adding more units"
+    ],
+    "answer": "Dividends and capital gains"
+  },
+  {
+    "id": 7,
+    "question": "Which of these Mutual Funds is considered suitable for long-term investments?",
+    "options": [
+      "Equity Fund",
+      "Debt Fund",
+      "Money Market Fund",
+      "Liquid Fund"
+    ],
+    "answer": "Equity Fund"
+  }
+]
