@@ -1,5 +1,6 @@
 import { apiSlice } from "../apiSlice";
 const EXPENSE_URL = "/api/expenses";
+const QUIZ_URL = "/api/quiz/chapters";
 
 export const expenseSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -35,6 +36,12 @@ export const expenseSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Expenses"],
     }),
+    getQuiz: builder.query({
+      query: () => ({
+        url: `${QUIZ_URL}`,
+      }),
+      transformResponse: (res) => res.sort((a, b) => b.id - a.id),
+    }),
   }),
 });
 
@@ -43,4 +50,5 @@ export const {
   useAddExpenseMutation,
   useUpdateExpenseMutation,
   useDeleteExpenseMutation,
+  useGetQuizQuery
 } = expenseSlice;

@@ -1,0 +1,28 @@
+[
+    {
+      "question": "What does SIP stand for in networking?",
+      "options": ["Session Initiation Protocol", "System Integration Process", "Signal Interaction Path", "Secure Internet Protocol"],
+      "answer": "Session Initiation Protocol"
+    },
+    {
+      "question": "Which of the following is a primary function of SIP?",
+      "options": ["Establishing, modifying, and terminating communication sessions", "Encrypting data", "Routing IP packets", "Managing email servers"],
+      "answer": "Establishing, modifying, and terminating communication sessions"
+    },
+    {
+      "question": "SIP operates at which layer of the OSI model?",
+      "options": ["Application Layer", "Transport Layer", "Session Layer", "Data Link Layer"],
+      "answer": "Application Layer"
+    },
+    {
+      "question": "SIP is used for establishing communication sessions in which of the following?",
+      "options": ["VoIP", "HTTP", "SMTP", "FTP"],
+      "answer": "VoIP"
+    },
+    {
+      "question": "Which protocol is commonly used alongside SIP for media transport?",
+      "options": ["RTP", "FTP", "HTTP", "SMTP"],
+      "answer": "RTP"
+    }
+  ]
+  

@@ -1,0 +1,28 @@
+[
+    {
+      "question": "What does NEPSE stand for?",
+      "options": ["Nepal Stock Exchange", "National Economic Policy Standard Exchange", "Nepal Equity and Share Exchange", "National Stock Exchange"],
+      "answer": "Nepal Stock Exchange"
+    },
+    {
+      "question": "In which year was NEPSE established?",
+      "options": ["1993", "2001", "1985", "1998"],
+      "answer": "1993"
+    },
+    {
+      "question": "Which of the following is a trading mechanism used by NEPSE?",
+      "options": ["Automated Trading System", "Outcry Trading System", "Blockchain System", "Barter System"],
+      "answer": "Automated Trading System"
+    },
+    {
+      "question": "Which regulatory body oversees the operations of NEPSE?",
+      "options": ["Securities Board of Nepal (SEBON)", "Nepal Rastra Bank", "Nepal Investment Authority", "Ministry of Finance"],
+      "answer": "Securities Board of Nepal (SEBON)"
+    },
+    {
+      "question": "What is the primary index used to track the performance of stocks in NEPSE?",
+      "options": ["NEPSE Index", "Nifty 50", "Dow Jones", "FTSE 100"],
+      "answer": "NEPSE Index"
+    }
+  ]
+  

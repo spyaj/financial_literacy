@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Search } from "lucide-react";
 import { AudioLines } from "lucide-react";
+import { VideoCard } from "../components/VideoPlayer";
 
 const dashboardVariant = {
   initial: {
@@ -97,7 +98,7 @@ const Video = () => {
         variants={dashboardVariant}
         initial="initial"
         animate="animate"
-        className="p-6 max-w-[1600px] h-screen mx-auto"
+        className="p-6 max-w-[1600px] h-full min-h-screen mx-auto"
       >
         <Navbar />
 
@@ -118,7 +119,6 @@ const Video = () => {
               <button
                 type="submit"
                 className="relative p-2 bg-[#0d1829] rounded-full"
-                onClick={handleSearchSubmit}
               >
                 <Search color="#ff7070" />
               </button>
@@ -127,8 +127,20 @@ const Video = () => {
 
           <hr className="bg-gray-600" />
 
-          {renderVideosByTag("finance")}
-          {renderVideosByTag("money")}
+          <div className="space-y-2 mt-6">
+            <h1 className="text-xl font-bold text-white">All Videos</h1>
+            <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              {filteredVideos.map((video) => {
+                return (
+                  <VideoCard
+                    key={video._id}
+                    video={video}
+                    handleVideoClick={handleVideoClick}
+                  />
+                );
+              })}
+            </div>
+          </div>
         </div>
       </motion.div>
     </div>

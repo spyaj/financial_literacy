@@ -18,13 +18,16 @@ export const DataProvider = ({ children }) => {
   const [showQuiz, setShowQuiz] = useState(false);
   const [showResult, setShowResult] = useState(false);
 
-  // Load JSON Data
-  useEffect(() => {
-    fetch("quiz.json")
+  // Load JSON Data based on chapter
+  const loadQuiz = (chapterId) => {
+    fetch(`quiz_chapter_${chapterId}.json`)
       .then((res) => res.json())
-      .then((data) => setQuizs(data));
-  }, []);
-
+      .then((data) => {
+        setQuizs(data); // Load the quiz data
+        setQuestion(data[0]); // Set the first question as default
+      })
+      .catch((error) => console.error("Error loading quiz:", error));
+  };
   // Set a Single Question
   useEffect(() => {
     if (quizs.length > questionIndex) {
@@ -32,23 +35,32 @@ export const DataProvider = ({ children }) => {
     }
   }, [quizs, questionIndex]);
 
-  // Start Quiz
-  const startQuiz = () => {
+  // Start Quiz for the selected chapter
+  const startQuiz = (chapterId) => {
+    loadQuiz(chapterId); // Load quiz for the selected chapter
+    setQuestionIndex(0); // Reset question index
+    setCorrectAnswer("");
+    setSelectedAnswer("");
     setShowStart(false);
     setShowQuiz(true);
   };
 
   // Check Answer
-  const checkAnswer = (event, selected) => {
+  const checkAnswer = (selected) => {
     if (!selectedAnswer) {
       setCorrectAnswer(question.answer);
       setSelectedAnswer(selected);
-
+  
+      // Log selected and correct answers for debugging
+      console.log("Selected answer:", selected);
+      console.log("Correct answer:", question.answer);
+  
+      // Update marks based on the selected answer
       if (selected === question.answer) {
-        event.target.classList.add("bg-success");
-        setMarks((prevMarks) => prevMarks + 5);
-      } else {
-        event.target.classList.add("bg-danger");
+        setMarks((prevMarks) => {
+          console.log("Adding 5 marks. Previous marks:", prevMarks);
+          return prevMarks + 5;
+        });
       }
     }
   };

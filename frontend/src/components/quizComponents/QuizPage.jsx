@@ -1,10 +1,9 @@
-// QuizPage.jsx
-
-import React, { useContext, useState } from "react";
+import React, { useState, useContext } from "react";
 import DataContext from "../../context/dataContext";
 import CancelModel from "../CancelModel";
+import axios from "axios"; // Add axios for API call
 
-const QuizPage = () => {
+const QuizPage = ({ quiz }) => {
   const {
     showQuiz,
     question,
@@ -18,7 +17,36 @@ const QuizPage = () => {
     cancelQuiz,
   } = useContext(DataContext);
 
+  // Check if quiz data is available
+  // if (!showQuiz || quizs.length === 0) {
+  //   return <div>Loading...</div>; // Show a loading state or message
+  // }
+
   const [showModal, setShowModal] = useState(false);
+  const [answers, setAnswers] = useState({}); // State to hold user's answers
+  const [submissionResult, setSubmissionResult] = useState(null); // To store result after submission
+  
+  const handleAnswerSelection = (item) => {
+    setAnswers({
+      ...answers,
+      [question._id]: item,
+    });
+    checkAnswer(item); // Pass item directly, not event
+  };
+
+  // Function to submit quiz answers to the backend
+  const handleQuizSubmission = async () => {
+    // try {
+    //   const response = await axios.post(`/api/quiz/${quiz.level}/submit`, {
+    //     answers,
+    //   });
+    //   setSubmissionResult(response.data); // Store the submission result
+    //   showTheResult(); // Show result page after submission
+    // } catch (error) {
+    //   console.error("Error submitting quiz:", error);
+    // }
+    showTheResult();
+  };
 
   const handleCancelQuiz = () => {
     setShowModal(true);
@@ -32,7 +60,6 @@ const QuizPage = () => {
     if (cancelQuiz()) {
       setShowModal(false);
     }
-    // Optionally handle cancel confirmation logic here
   };
 
   return (
@@ -50,12 +77,13 @@ const QuizPage = () => {
                 <h5 className="text-lg font-medium">{question?.question}</h5>
                 <div className="text-right">
                   <span className="text-green-500 mr-2">
-                    {quizs.indexOf(question) + 1}
+                    {questionIndex + 1}
                   </span>
                   <span className="text-gray-400">/</span>
                   <span className="text-gray-400 ml-2">{quizs.length}</span>
                 </div>
               </div>
+
               <div className="grid grid-cols-2 gap-4">
                 {question?.options?.map((item, index) => (
                   <button
@@ -67,7 +95,7 @@ const QuizPage = () => {
                         ? "bg-red-500"
                         : ""
                     }`}
-                    onClick={(event) => checkAnswer(event, item)}
+                    onClick={() => handleAnswerSelection(item)}
                     disabled={!!selectedAnswer}
                   >
                     {item}
@@ -86,7 +114,7 @@ const QuizPage = () => {
               ) : (
                 <button
                   className="btn py-2 w-full mt-4 bg-blue-500 text-white font-semibold hover:bg-blue-600"
-                  onClick={showTheResult}
+                  onClick={handleQuizSubmission} // Call handleQuizSubmission here
                   disabled={!selectedAnswer}
                 >
                   Show Result
@@ -107,6 +135,16 @@ const QuizPage = () => {
       {/* Modal for Cancel Confirmation */}
       {showModal && (
         <CancelModel onCancel={handleCancel} onConfirm={handleConfirmCancel} />
+      )}
+
+      {/* Optionally render submission result here */}
+      {submissionResult && (
+        <div className="result">
+          <h3>Quiz Submitted Successfully</h3>
+          <p>Correct Answers: {submissionResult.correctAnswers}</p>
+          <p>Total Questions: {submissionResult.totalQuestions}</p>
+          <p>XP Gained: {submissionResult.xpGained}</p>
+        </div>
       )}
     </section>
   );

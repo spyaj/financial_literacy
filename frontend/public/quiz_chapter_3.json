@@ -1,0 +1,28 @@
+[
+    {
+      "question": "What is a mutual fund?",
+      "options": ["A pool of money from many investors to invest in securities", "A loan offered by a bank", "A type of fixed deposit", "A stock exchange platform"],
+      "answer": "A pool of money from many investors to invest in securities"
+    },
+    {
+      "question": "Which of the following is an advantage of mutual funds?",
+      "options": ["Diversification", "High transaction costs", "Guaranteed returns", "No risk"],
+      "answer": "Diversification"
+    },
+    {
+      "question": "Who manages the investments in a mutual fund?",
+      "options": ["A professional fund manager", "The individual investors", "A government official", "A financial advisor"],
+      "answer": "A professional fund manager"
+    },
+    {
+      "question": "Mutual funds are typically regulated by which type of organization?",
+      "options": ["Securities and Exchange Commission", "Central Banks", "Tax Authorities", "International Monetary Fund"],
+      "answer": "Securities and Exchange Commission"
+    },
+    {
+      "question": "Which of the following is a type of mutual fund?",
+      "options": ["Equity Fund", "Savings Account", "Fixed Deposit", "Real Estate Fund"],
+      "answer": "Equity Fund"
+    }
+  ]
+  
