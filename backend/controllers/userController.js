@@ -95,5 +95,31 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     throw new Error("User Not Found");
   }
 });
+//Private GET /api/users for admin 
+// Get all users (admin only)
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find({});
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch users" });
+  }
+};
 
-export { authUser, registerUser, logOut, getUserProfile, updateUserProfile };
+// Delete a user by ID (admin only)
+const deleteUser = async (req, res) => {
+  try {
+    const user = await User.findByIdAndDelete(req.params.id);
+    
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json({ message: "User removed" });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to delete user" });
+  }
+};
+
+
+export { authUser, registerUser, logOut, getUserProfile, updateUserProfile, getAllUsers, deleteUser };

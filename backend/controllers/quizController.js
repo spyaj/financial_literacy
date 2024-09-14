@@ -1,157 +1,43 @@
-import Quiz from "../models/quizModel.js";
-import User from "../models/userModel.js";
+// controllers/quizController.js
 import asyncHandler from "express-async-handler";
+import Quiz from "../models/quizModel.js";
 
-// Fetch a quiz by its level
-// export const getQuizByLevel = async (req, res) => {
-//   console.log("Received level:", req.params.level);
-//   try {
-//     console.log("Received level:", req.params.level);
-//     const level = parseInt(req.params.level);  // Convert level to a number
-//     if (isNaN(level)) {
-//       return res.status(400).json({ error: "Invalid level format" });
-//     }
+// Fetch all quizzes
+const getQuizzes = asyncHandler(async (req, res) => {
+  const quizzes = await Quiz.find();
+  res.json(quizzes);
+});
 
-//     const quiz = await Quiz.findOne({ level });
+// Add a new quiz
+const addQuiz = asyncHandler(async (req, res) => {
+  const { chapter, questions } = req.body;
 
-//     if (!quiz) {
-//       return res.status(404).json({ message: "Quiz not found for this level" });
-//     }
-
-//     res.json(quiz);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: "Server error" });
-//   }
-// };
-
-export const getQuizByLevel = asyncHandler(async (req, res) => {
-  const level = Number(req.params.level);
-
-  // Check if conversion was successful
-  if (isNaN(level)) {
-    return res.status(400).json({ error: "Invalid level format" });
+  if (!chapter || !questions || questions.length === 0) {
+    res.status(400).json({ message: "Please provide a valid chapter and questions" });
+    return;
   }
 
-  console.log("Received level (backend):", level); // Log to verify
+  const quiz = new Quiz({ chapter, questions });
+  await quiz.save();
+  res.status(201).json({ message: "Quiz added successfully", quiz });
+});
 
-  const quiz = await Quiz.findOne({ level });
+// Delete a quiz by ID
+const deleteQuiz = asyncHandler(async (req, res) => {
+  const quizId = req.params.id;
+  console.log("Attempting to delete quiz with ID:", quizId);
+
+  if (!quizId) {
+    return res.status(400).json({ message: "No ID provided" });
+  }
+
+  const quiz = await Quiz.findByIdAndDelete(quizId);
 
   if (!quiz) {
-    return res.status(404).json({ message: "Quiz not found for this level" });
+    return res.status(404).json({ message: "Quiz not found" });
   }
 
-  res.json(quiz);
+  res.json({ message: "Quiz deleted" });
 });
 
-// Submit quiz answers and update user XP and unlock levels
-// Ensure level is cast to a number
-export const submitQuizAnswers = asyncHandler(async (req, res) => {
-  const level = Number(req.params.level); // Cast level to a number
-  const { answers } = req.body;
-
-  const quiz = await Quiz.findOne({ level });
-  if (!quiz) {
-    res.status(404);
-    throw new Error("Quiz not found");
-  }
-
-  let correctAnswers = 0;
-  quiz.questions.forEach((question) => {
-    if (answers[question._id] === question.answer) {
-      correctAnswers++;
-    }
-  });
-
-  const totalQuestions = quiz.questions.length;
-  const percentageCorrect = (correctAnswers / totalQuestions) * 100;
-  const user = req.user;
-
-  // Calculate XP for correct answers (e.g., 10 XP per correct answer)
-  const xpGained = correctAnswers * 10;
-  user.xp += xpGained;
-
-  // Check if the user should unlock the next level
-  if (percentageCorrect >= 60) {
-    user.completedLevels.push(level);
-    const nextLevel = level + 1;
-    if (!user.unlockedLevels.includes(nextLevel)) {
-      user.unlockedLevels.push(nextLevel);
-    }
-  }
-
-  await user.save();
-
-  res.json({
-    message: "Quiz submitted successfully",
-    correctAnswers,
-    totalQuestions,
-    percentageCorrect,
-    xpGained,
-  });
-});
-
-// Fetch leaderboard
-export const getLeaderboard = asyncHandler(async (req, res) => {
-  const { timeframe } = req.params;
-
-  let startDate;
-  const now = new Date();
-
-  switch (timeframe) {
-    case "daily":
-      startDate = new Date(now.setDate(now.getDate() - 1));
-      break;
-    case "weekly":
-      startDate = new Date(now.setDate(now.getDate() - 7));
-      break;
-    case "monthly":
-      startDate = new Date(now.setMonth(now.getMonth() - 1));
-      break;
-    default:
-      res.status(400);
-      throw new Error("Invalid timeframe");
-  }
-
-  const leaderboard = await User.find({ updatedAt: { $gte: startDate } })
-    .sort({ xp: -1 }) // Sort users by XP in descending order
-    .limit(10);
-
-  res.json(leaderboard);
-});
-
-// Get chapters and levels
-// export const getChaptersAndLevels = async (req, res) => {
-//   try {
-//     console.log(req);
-//     const quizzes = await Quiz.find(); // Fetch all quizzes
-//     console.log(quizzes);
-//     const chapters = quizzes.reduce((acc, quiz) => {
-//       const chapterIndex = acc.findIndex((c) => c.name === quiz.chapter);
-//       if (chapterIndex === -1) {
-//         // If chapter doesn't exist, create a new entry
-//         acc.push({
-//           name: quiz.chapter,
-//           levels: [quiz.level],
-//         });
-//       } else {
-//         // If chapter exists, add the level
-//         acc[chapterIndex].levels.push(quiz.level);
-//       }
-//       return acc;
-//     }, []);
-
-//     res.status(200).json(chapters); // Send the chapters and levels
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: "Server error" });
-//   }
-// };
-
-export const getChaptersAndLevels = asyncHandler(async (req, res) => {
-  // const quizes = await Quiz.find()
-  //   .sort({ _id: -1 });
-  res.json({
-    message: 'Chapters and levels fetched successfully',
-  });
-});
+export { getQuizzes, addQuiz, deleteQuiz };

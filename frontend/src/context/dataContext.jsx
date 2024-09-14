@@ -143,10 +143,6 @@ export const DataProvider = ({ children }) => {
         marks,
         startOver,
         cancelQuiz,
-        updateLeaderboard,
-        leaderboard,
-        marks,
-        setMarks, 
       }}
     >
       {children}

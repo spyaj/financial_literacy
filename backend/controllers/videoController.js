@@ -42,4 +42,21 @@ const searchVideos = asyncHandler(async (req, res) => {
   }
 });
 
-export { fetchVideos, addVideo, searchVideos };
+const deleteVideo = asyncHandler(async (req, res) => {
+  console.log(req.params.id);
+  try {
+    // Find and delete the video by ID
+    const video = await Video.findByIdAndDelete(req.params.id);
+
+    if (!video) {
+      return res.status(404).json({ message: "Video not found" });
+    }
+
+    res.json({ message: "Video removed" });
+  } catch (error) {
+    console.error(error);  // Log the error for debugging purposes
+    res.status(500).json({ message: "Failed to delete video" });
+  }
+});
+
+export { fetchVideos, addVideo, searchVideos, deleteVideo };

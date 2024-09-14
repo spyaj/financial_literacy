@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import DataContext from "../../context/dataContext";
 import CancelModel from "../CancelModel";
 import { useSelector } from "react-redux";
-import axios from "axios"; // Add axios for API call
+// import axios from "axios"; // Add axios for API call
 
 const QuizPage = ({ quiz }) => {
   const {
@@ -16,8 +16,8 @@ const QuizPage = ({ quiz }) => {
     nextQuestion,
     showTheResult,
     cancelQuiz,
-    updateLeaderboard, // Add this line
-    marks, // Make sure to access marks from contextupdateLeaderboard,
+    // updateLeaderboard, // Add this line
+    // marks, // Make sure to access marks from contextupdateLeaderboard,
   } = useContext(DataContext);
 
   // Check if quiz data is available
@@ -26,8 +26,8 @@ const QuizPage = ({ quiz }) => {
   // }
   // const currentUser = {userInfo.name};
   // Get current user's name from Redux store
-  const { userInfo } = useSelector((state) => state.auth);
-  const currentUser = userInfo ? userInfo.name : "Guest";
+  // const { userInfo } = useSelector((state) => state.auth);
+  // const currentUser = userInfo ? userInfo.name : "Guest";
 
   const [showModal, setShowModal] = useState(false);
   const [answers, setAnswers] = useState({}); // State to hold user's answers
@@ -43,17 +43,7 @@ const QuizPage = ({ quiz }) => {
 
   // Function to submit quiz answers to the backend
   const handleQuizSubmission = async () => {
-    // try {
-    //   const response = await axios.post(`/api/quiz/${quiz.level}/submit`, {
-    //     answers,
-    //   });
-    //   setSubmissionResult(response.data); // Store the submission result
-    //   showTheResult(); // Show result page after submission
-    // } catch (error) {
-    //   console.error("Error submitting quiz:", error);
-    // }
-    // Update leaderboard with the user's score
-    updateLeaderboard(currentUser, marks);
+   
     showTheResult();
   };
 

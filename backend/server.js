@@ -1,6 +1,9 @@
 
 import path from "path";
 import express from "express";
+import cors from "cors";  // Import the CORS package
+
+
 import userRoutes from "./routes/userRoutes.js";
 import expenseRoutes from "./routes/expenseRoutes.js";
 import videoRoutes from "./routes/videoRoutes.js";
@@ -18,6 +21,13 @@ connectDB();
 
 const app = express();
 
+// Use CORS middleware
+app.use(cors({
+  origin: "http://localhost:3000",  // Allow requests from this origin
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+}));
+
 // Parse body
 app.use(express.json());
 // Allow to send form data
@@ -28,7 +38,7 @@ app.use(cookieParser());
 app.use("/api/users", userRoutes);
 app.use("/api/expenses", expenseRoutes);
 app.use("/api/videos", videoRoutes);
-app.use("/api/quiz", quizRoutes);
+app.use("/api/quizzes", quizRoutes);
 
 const __dirname = path.resolve();
 if (NODE_ENV === "production") {
